@@ -3,7 +3,7 @@ body{
 	background: linear-gradient(351deg, rgba(184,32,180,0.5) 0%, rgba(201,107,235,0.5) 40%, rgba(116,209,238,0.5) 100%);
 	background-repeat: no-repeat;
 	height: 100vh;
-	color: white;
+	color: #8800ff;
 }
 .btn-success{
 	background-color: #a703cf !important;
