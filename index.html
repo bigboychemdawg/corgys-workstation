@@ -83,15 +83,7 @@
   	<div style="display: flex;flex-direction: column;align-items: stretch; width: 100%; max-width: 300px; margin: auto;">
   		<textarea type="text" id="translit" value="" /></textarea>
   		<button class="btn btn-success my-3" class="btn btn-success" id="submit">Транслитнуть</button>
-  		<!-- <div class="form-group">
-  <textarea id="translit" class="form-control" rows="4">Как принято считать, независимые государства функционально разнесены на независимые элементы. Следует отметить, что семантический разбор внешних противодействий, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов.</textarea>
-</div>
-<div class="form-group" style="text-align: center;">
-  <button type="button" id="submit" class="btn btn-primary">Перевести в транслит</button>
-</div> -->
-  		<br><br>
-			<div id="result4"></div>
-			<button style="display: none;" id="copy3" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#result4" onclick="clearTbody()">Копировать</button>
+			<button style="display: none; margin-top: 1rem !important;" id="copy4" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#translit" onclick="clearTextarea()">Копировать</button>
   	</div>
   </div>
 </div>
@@ -100,9 +92,11 @@
 var btn1 = document.getElementById("copy1")
 var btn2 = document.getElementById("copy2")
 var btn3 = document.getElementById("copy3")
+var btn3 = document.getElementById("copy4")
 new ClipboardJS(btn1);
 new ClipboardJS(btn2);
 new ClipboardJS(btn3);
+new ClipboardJS(btn4);
 </script>
 <script>
 function translit(word){
@@ -137,6 +131,10 @@ function translit(word){
 }
 
 $('#submit').click(function(){
+	let submit = document.getElementById("submit")
+	let copy = document.getElementById("copy4")
+	submit.style.display = 'none'
+	copy.style.display = 'block'
   $('#translit').val(function(i, val){
     return translit(val);
   });
