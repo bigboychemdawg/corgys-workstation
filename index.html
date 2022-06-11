@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/transliter.js"></script>
+	
+	<title></title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="img/logo.gif" width="70px"></a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="nav" >
+		  <a class="nav-link active" id="pills-home-tab" data-toggle="tab" href="#pills-home">Паспорт</a>
+      <a class="nav-link" id="pills-profile-tab" data-toggle="tab" href="#pills-profile">Путь</a>
+      <a class="nav-link" id="pills-contact-tab" data-toggle="tab" href="#pills-contact">Профиль окто</a>
+      <a class="nav-link" id="trans-tab" data-toggle="tab" href="#trans">Транслитерация</a>
+		</div>
+  </div>
+</nav>
+
+<div class="tab-content" id="pills-tabContent" style="margin-top: 100px;">
+  <div class="tab-pane fade show active mx-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" style="text-align: center;">
+  	<div style="display: flex;flex-direction: column;align-items: stretch; width: 100%; max-width: 300px; margin: auto;">
+  		<select class="my-1" id="select">
+		<option value="RU">RU</option>
+		<option value="BY">BY</option>
+		<option value="UA">UA</option>
+		<option value="UAzagran1">UA загран запыс</option>
+		<option value="UAzagran2">UA загран пидпыс</option>
+		</select>
+	<input class="my-1" id="quantity" type="" name="" placeholder="Количество">
+	<button class="btn btn-success my-3" onclick="getResult1()">Получить (в ебало)</button>
+	<br><br>
+	<table>
+	<thead>			
+	</thead>
+	<tbody id="result">
+	</tbody>
+	<button style="display: none;" id="copy1" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#result" onclick="clearTbody()">Копировать</button>
+	</table>
+	</div>
+  </div>
+  <div class="tab-pane fade mx-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+  	<div style="display: flex;flex-direction: column;align-items: stretch; width: 100%; max-width: 300px; margin: auto;">
+  	<input class="my-1" id="input" type="" name="" placeholder="Количество">
+	<input class="my-1" id="start" type="" name="" placeholder="Стартовая цифра">
+	<input class="my-1" id="path" type="" name="" placeholder="Путь до названия файла">
+	<button class="btn btn-success my-3" class="btn btn-success" onclick="getResultPath()">Получить (в ебало)</button>
+	<br><br>
+	<table>
+	<thead>			
+	</thead>
+	<tbody id="result2">
+	</tbody>
+	<button style="display: none;" id="copy2" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#result2" onclick="clearTbody()">Копировать</button>
+	</table>
+  	</div>
+  </div>
+  <div class="tab-pane fade mx-5" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+  	<div style="display: flex;flex-direction: column;align-items: stretch; width: 100%; max-width: 300px; margin: auto;">
+  		<input class="my-1" id="input1" type="" name="" placeholder="Количество">
+  		<input class="my-1" id="start1" type="" name="" placeholder="Стартовая цифра">
+  		<button class="btn btn-success my-3" class="btn btn-success" onclick="getResultName()">Получить (в ебало)</button>
+  		<br><br>
+	<table>
+	<thead>			
+	</thead>
+	<tbody id="result3" style="text-align: center;">
+	</tbody>
+	<button style="display: none;" id="copy3" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#result3" onclick="clearTbody()">Копировать</button>
+	</table>
+  	</div>
+  </div>
+   <div class="tab-pane fade mx-5" id="trans" role="tabpanel" aria-labelledby="pills-trans-tab">
+  	<div style="display: flex;flex-direction: column;align-items: stretch; width: 100%; max-width: 300px; margin: auto;">
+  		<textarea type="text" id="translit" value="" /></textarea>
+  		<button class="btn btn-success my-3" class="btn btn-success" id="submit">Транслитнуть</button>
+  		<!-- <div class="form-group">
+  <textarea id="translit" class="form-control" rows="4">Как принято считать, независимые государства функционально разнесены на независимые элементы. Следует отметить, что семантический разбор внешних противодействий, в своём классическом представлении, допускает внедрение распределения внутренних резервов и ресурсов.</textarea>
+</div>
+<div class="form-group" style="text-align: center;">
+  <button type="button" id="submit" class="btn btn-primary">Перевести в транслит</button>
+</div> -->
+  		<br><br>
+			<div id="result4"></div>
+			<button style="display: none;" id="copy3" type="button" class="btn-clipboard btn btn-secondary" data-clipboard-target="#result4" onclick="clearTbody()">Копировать</button>
+  	</div>
+  </div>
+</div>
+<script type="text/javascript" src="js/clipboard.js"></script>
+<script>
+var btn1 = document.getElementById("copy1")
+var btn2 = document.getElementById("copy2")
+var btn3 = document.getElementById("copy3")
+new ClipboardJS(btn1);
+new ClipboardJS(btn2);
+new ClipboardJS(btn3);
+</script>
+<script>
+function translit(word){
+  var answer = '';
+  var converter = {
+    'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
+    'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
+    'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
+    'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
+    'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
+    'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
+    'э': 'e',    'ю': 'yu',   'я': 'ya',
+ 
+    'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
+    'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
+    'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
+    'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
+    'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
+    'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
+    'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya'
+  };
+
+  for (var i = 0; i < word.length; ++i ) {
+    if (converter[word[i]] == undefined){
+      answer += word[i];
+    } else {
+      answer += converter[word[i]];
+    }
+  }
+
+  return answer;
+}
+
+$('#submit').click(function(){
+  $('#translit').val(function(i, val){
+    return translit(val);
+  });
+ 
+  return false;
+});
+</script>
+  <div class="footer" id="footer"><img class="gifka" src="img/corgy.gif"></div>
+</body>
+</html>
