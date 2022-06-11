@@ -111,7 +111,9 @@ function getResult(){
 }
   function getResultName() {setInterval(getResultName1(), 1000)}
 
-  function clearTbody() {
+  function clearTbody() {setTimeout(clearTbody1, 100)}
+
+  function clearTbody1(){
     let result1 = document.getElementById("result")
     let result2 = document.getElementById("result2")
     let result3 = document.getElementById("result3")
