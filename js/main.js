@@ -121,3 +121,11 @@ function getResult(){
     result2.innerHTML = ""
     result3.innerHTML = ""
   }
+  function clearTextarea() {
+    let textarea = document.getElementById("translit")
+    let submit = document.getElementById("submit")
+    let copy = document.getElementById("copy4")
+    setTimeout(function(){textarea.value = ''}, 100)
+    submit.style.display = 'block'
+    copy.style.display = 'none'
+  }
