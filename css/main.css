@@ -9,6 +9,10 @@ body{
 	background-color: #a703cf !important;
 	border: none !important;
 }
+.btn-secondary {
+	background-color: #e88aff !important;
+	border: none !important;
+}
 input {
 	border-radius: 20px;
 	border: 1px solid white;
