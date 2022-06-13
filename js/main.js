@@ -129,3 +129,38 @@ function getResult(){
     submit.style.display = 'block'
     copy.style.display = 'none'
   }
+
+function createDate(){
+  let i = 1
+  let quantity = document.getElementById("quantityDate").value
+  while (i <= quantity){
+        let element = document.createElement("tr")
+        let startDate1 = randomDate(new Date(2010, 0, 1), new Date())
+        let startDate = startDate1.toLocaleDateString()
+        var year = startDate1.getFullYear();
+        var month = startDate1.getMonth();
+        var day = startDate1.getDate();
+        let endDate = new Date(year + 40, month, day).toLocaleDateString()
+        element.innerHTML = "<th>"+startDate+"</th>"+"<th>"+endDate+"</th>"
+        result = document.getElementById("result4")
+        result.append(element)
+        i++
+  }
+    let submit = document.getElementById("dateSubmit")
+    let copy = document.getElementById("copy5")
+    submit.style.display = 'none'
+    copy.style.display = 'block'
+
+}
+function randomDate(start, end) {
+ return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
+function clearResult4(){
+  let submit = document.getElementById("dateSubmit")
+  let copy = document.getElementById("copy5")
+  let result = document.getElementById("result4")
+  setTimeout(function(){result.innerHTML = ''}, 100)
+  submit.style.display = 'block'
+  copy.style.display = 'none'
+}
