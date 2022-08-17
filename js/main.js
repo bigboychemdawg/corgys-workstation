@@ -59,6 +59,7 @@ function getResult(){
         document.getElementById("copy1").style.display = "block"
         i++
         }
+        }
       else if (geo == "UK1"){
         let i = 1
         let x = document.getElementById("quantity").value
@@ -69,6 +70,7 @@ function getResult(){
         result.append(element)
         document.getElementById("copy1").style.display = "block"
         i++
+      }
       }
       else if (geo == "UK2"){
         let i = 1
@@ -81,6 +83,7 @@ function getResult(){
         document.getElementById("copy1").style.display = "block"
         i++
       }
+      }
       else if (geo == "US1"){
         let i = 1
         let x = document.getElementById("quantity").value
@@ -92,6 +95,7 @@ function getResult(){
         document.getElementById("copy1").style.display = "block"
         i++
       }
+      }
       else if (geo == "US2"){
         let i = 1
         let x = document.getElementById("quantity").value
@@ -102,6 +106,7 @@ function getResult(){
         result.append(element)
         document.getElementById("copy1").style.display = "block"
         i++
+      }
       }
       function makeLetter(e) {
         var text = "";
