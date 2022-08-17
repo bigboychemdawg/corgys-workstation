@@ -59,7 +59,6 @@ function getResult(){
         document.getElementById("copy1").style.display = "block"
         i++
         }
-        }
       else if (geo == "UK1"){
         let i = 1
         let x = document.getElementById("quantity").value
