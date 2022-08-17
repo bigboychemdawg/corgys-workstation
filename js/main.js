@@ -59,6 +59,50 @@ function getResult(){
         document.getElementById("copy1").style.display = "block"
         i++
         }
+        }
+      else if (geo == "UK1"){
+        let i = 1
+        let x = document.getElementById("quantity").value
+        while (i <= x){
+        let element = document.createElement("tr")
+        element.innerHTML = "<th>"+makeNumber(10)+"GBR"+makeNumber(7)+makeLetter(1)+makeNumber(7)+"<<<<<<<<<<<<<<"+makeNumber(2)+"</th>"
+        result = document.getElementById("result")
+        result.append(element)
+        document.getElementById("copy1").style.display = "block"
+        i++
+      }
+      else if (geo == "UK2"){
+        let i = 1
+        let x = document.getElementById("quantity").value
+        while (i <= x){
+        let element = document.createElement("tr")
+        element.innerHTML = "<th>"+makeNumber(9)+"</th>"
+        result = document.getElementById("result")
+        result.append(element)
+        document.getElementById("copy1").style.display = "block"
+        i++
+      }
+      else if (geo == "US1"){
+        let i = 1
+        let x = document.getElementById("quantity").value
+        while (i <= x){
+        let element = document.createElement("tr")
+        element.innerHTML = "<th>"+makeNumber(8)+"</th>"
+        result = document.getElementById("result")
+        result.append(element)
+        document.getElementById("copy1").style.display = "block"
+        i++
+      }
+      else if (geo == "US2"){
+        let i = 1
+        let x = document.getElementById("quantity").value
+        while (i <= x){
+        let element = document.createElement("tr")
+        element.innerHTML = "<th>"+makeNumber(3)+"-"+makeNumber(3)+"-"+makeNumber(3)+"</th>"
+        result = document.getElementById("result")
+        result.append(element)
+        document.getElementById("copy1").style.display = "block"
+        i++
       }
       function makeLetter(e) {
         var text = "";
