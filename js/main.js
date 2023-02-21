@@ -106,6 +106,7 @@ function getResult(){
         result.append(element)
         document.getElementById("copy1").style.display = "block"
         i++
+        }
       }
       else if (geo == "RO1"){
         let i = 1
